@@ -1,0 +1,13 @@
+header.header#header
+  .container
+    .wrapper-flex
+      .logo--wrapper
+        a href=root_path
+          img.logo src="/assets/logo.svg"
+      nav.header__navigation
+        - for nav in navigation_items do
+          a.navigation--item href=nav[1] = nav[0]
+        - if auth
+          a.navigation--item href=logout_path = 'Выйти'
+        - else
+          a.navigation--item href=login_path = 'Войти'
