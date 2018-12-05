@@ -1,3 +1,16 @@
 main.page.page-home
   .container
-    | Home
+    h1.title = @app[:title]
+    .videos
+      - @videos.each do |v|
+        .video data-id=v.id
+          a href="/video/#{v.id}"
+            .video__thumb--wrapper
+              .video__thumb  style="background-image: url(/thumbs/#{v.thumb}"
+          .video__info
+            a href="/video/#{v.id}"
+              h6.video__title = v.title
+            a.video__category href="/category/#{v.category.id}" = v.category.title
+            span.video__date = v.created_at.strftime("%Y-%m-%d")
+      - if @videos.length == 0
+        span.empty = "Пусто"

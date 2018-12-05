@@ -3,8 +3,8 @@ main.page.page-login
     .page-login__wrapper
       form.login-form--wrapper.register method="post" action="/register"
         h3.form__title = "Регистрация"
-        - notice
-        .notice.success = notice
+        - if notice
+          .notice.success = notice
         span.form--description
           a.form--link href="/login" = "Уже зарегистрированы?"
         input.form--field type="text" placeholder="Электронная почта" name="email"

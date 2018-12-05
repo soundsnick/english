@@ -11,3 +11,8 @@ header.header#header
           a.navigation--item href=logout_path = 'Выйти'
         - else
           a.navigation--item href=login_path = 'Войти'
+.categories--wrapper
+  .container
+    nav.categories
+      - categories.each do |c|
+        a.category href="/category/#{c.id}" = c.title

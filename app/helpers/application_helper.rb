@@ -16,6 +16,10 @@ module ApplicationHelper
     ]
   end
 
+  def categories
+    Category.all
+  end
+
   def auth
     session['auth'] ? true : false
   end
