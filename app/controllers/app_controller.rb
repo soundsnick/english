@@ -26,4 +26,31 @@ class AppController < ApplicationController
   def about
     @app = {'title': "О нас"}
   end
+
+  def admin
+    unless isAdmin
+      redirect_to login_path, notice: 'Вы не являетесь администратором'
+    else
+      @app = {'title': 'Администратор'}
+      @videos = Video.all
+    end
+  end
+
+  def remove
+    if isAdmin
+      if @video = Video.find_by(id: params[:id])
+        @video.destroy
+        redirect_back(fallback_location: admin_path)
+      end
+    end
+  end
+
+  def add
+    if isAdmin
+      @app = {'title': 'Добавить видео'}
+    else
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
 end

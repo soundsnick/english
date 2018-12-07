@@ -23,4 +23,12 @@ module ApplicationHelper
   def auth
     session['auth'] ? true : false
   end
+
+  def isAdmin
+    if auth
+      session[:auth]['role'] ? true : false
+    else
+      false
+    end
+  end
 end

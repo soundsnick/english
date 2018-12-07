@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   root 'app#home'
   get '/about', to: 'app#about', as: :about
   get '/login', to: 'user#login_page', as: :login
-  # get '/register', to: 'user#register_page', as: :register
   get '/logout', to: 'user#logout', as: :logout
   get '/category/:id(.:format)', to: 'app#category'
   get '/video/:id(.:format)', to: 'app#video'
+  get '/admin', to: 'app#admin', as: :admin
+  get '/remove/:id(.:format)', to: 'app#remove'
+  get '/add', to: 'app#add', as: 'add'
 
   post '/login', to: 'user#login'
-  # post '/register', to: 'user#register'
+
 end
