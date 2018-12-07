@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get '/admin', to: 'app#admin', as: :admin
   get '/remove/:id(.:format)', to: 'app#remove'
   get '/add', to: 'app#add', as: 'add'
+  get '/edit/:id(.:format)', to: 'app#edit', as: 'edit'
 
+  post '/edit', to: 'app#editVideo'
   post '/login', to: 'user#login'
-
+  post '/add', to: 'app#addVideo'
+  post '/category/add', to: 'app#categoryAdd'
+  get '/category/remove/:id(.:format)', to: 'app#categoryRemove'
 end

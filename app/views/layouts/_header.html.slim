@@ -9,6 +9,7 @@ header.header#header
           a.navigation--item href=nav[1] = nav[0]
         - if isAdmin
           a.navigation--item href=add_path = "Добавить"
+          a.navigation--item href=admin_path = "Администрация"
         - if auth
           a.navigation--item href=logout_path = 'Выйти'
         - else

@@ -12,7 +12,7 @@ module ApplicationHelper
   def navigation_items
     [
         ['Главная', '/', false],
-        ['О нас', about_path, false]
+        # ['О нас', about_path, false]
     ]
   end
 

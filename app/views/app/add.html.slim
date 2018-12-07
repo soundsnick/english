@@ -1,7 +1,20 @@
 main.add-page.add
   .container
     h1.title = "Добавить видео"
-
+    = form_with method: 'post', url: '/add', multipart: true,  class: "add-form"
+      input.add-form__field type="text" name="title" placeholder="Название"
+      textarea.add-form__textarea name="description" placeholder="Описание"
+      .add-form__flex
+        select name="category"
+          - @categories.each do |c|
+            option value=c.id = c.title
+        label
+          span = "Загрузить видео"
+          input type="file" name="video"
+        label
+          span = "Загрузить обложку видео"
+          input type="file" name="cover"
+      input.form--button type="submit" value="Загрузить"
 css:
   .categories--wrapper{
     display: none;

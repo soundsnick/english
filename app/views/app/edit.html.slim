@@ -1,0 +1,24 @@
+main.add-page.add
+  .container
+    h1.title = @app[:title]
+    = form_with method: 'post', url: '/edit', multipart: true,  class: "add-form"
+      input name="id" value=@video.id type="hidden"
+      input.add-form__field type="text" name="title" placeholder="Название" value=@video.title
+      textarea.add-form__textarea name="description" placeholder="Описание"
+        = @video.description
+      .add-form__flex
+        select name="category"
+          - @categories.each do |c|
+            option value=c.id = c.title
+        label
+          span = "Изменить видео"
+          input type="file" name="video"
+        label
+          span = "Изменить обложку видео"
+          input type="file" name="cover"
+      input.form--button type="submit" value="Сохранить"
+      a.form--button.cancel href=url_for(:back) = "Отмена"
+css:
+  .categories--wrapper{
+    display: none;
+  }
