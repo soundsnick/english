@@ -12,10 +12,14 @@ header.header#header
           a.navigation--item href=admin_path = "Администрация"
         - if auth
           a.navigation--item href=logout_path = 'Выйти'
+          a.navigation--item.balance href="/balance"
+            = "Ваш баланс: "
+            = User.find_by(id: session[:auth]['id']).balance
+            span = "₸"
         - else
           a.navigation--item href=login_path = 'Войти'
 .categories--wrapper
   .container
     nav.categories
       - categories.each do |c|
-        a.category href="/category/#{c.id}" = c.title
+        a.categorys href="/category/#{c.id}" = c.title

@@ -1,16 +1,25 @@
 main.page.page-home
   .container
+    - if notice
+      .notice.success = notice
     h1.title = @app[:title]
     .videos
       - @videos.each do |v|
         .video data-id=v.id
-          a href="/video/#{v.id}"
+          a href="/course/#{v.id}"
             .video__thumb--wrapper
-              .video__thumb  style="background-image: url(/thumbs/#{v.thumb}"
+              .video__thumb  style="background-image: url(/courses/#{v.cover}"
+              .video__price
+                = v.price
+                span = "₸"
           .video__info
-            a href="/video/#{v.id}"
-              h6.video__title = v.title
+            a href="/course/#{v.id}"
+              h6.video__title
+                = v.title
+                - if UserCourse.where(user_id: session[:auth]['id'], course_id: v.id).length == 0
+                  a.video__buy href="/course/buy/#{v.id}" onclick="return confirm('Купить курс?')" = "Купить"
             a.video__category href="/category/#{v.category.id}" = v.category.title
-            span.video__date = v.created_at.strftime("%Y-%m-%d")
+            span.video__date = "Добавлено: " + v.created_at.strftime("%d.%m.%Y")
       - if @videos.length == 0
         span.empty = "Пусто"
+  = render 'layouts/footer'

@@ -8,6 +8,7 @@ end
 # My gems
 gem 'slim'
 gem 'pry'
+gem "font-awesome-rails"
 
 
 

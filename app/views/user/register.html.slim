@@ -1,7 +1,7 @@
 main.page.page-login
   .container
     .page-login__wrapper
-      form.login-form--wrapper.register method="post" action="/register"
+      = form_with method: 'post', url: '/register', class: 'login-form--wrapper register'
         h3.form__title = "Регистрация"
         - if notice
           .notice.success = notice
@@ -11,10 +11,10 @@ main.page.page-login
         input.form--field type="text" placeholder="Ваше имя" name="name"
         input.form--field type="password" placeholder="Пароль" name="password"
         input.form--field type="password" placeholder="Подтверждение пароля" name="password_confirm"
-        .flex
-          input.form--checkbox__input type="checkbox" name="privacy"
-          span.form--checkbox__text
-            = "Я согласен с "
-            a.form--link href="/privacy" = "условиями оферты"
+        / .flex
+        /   input.form--checkbox__input type="checkbox" name="privacy"
+          / span.form--checkbox__text
+          /   = "Я согласен с "
+          /   a.form--link href="/privacy" = "условиями оферты"
         .form--flex
-          input.form--button type="button" value="Зарегистрироваться"
+          input.form--button type="submit" value="Зарегистрироваться"

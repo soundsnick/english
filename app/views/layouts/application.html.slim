@@ -7,5 +7,6 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     app
-      = render 'layouts/header'
+      - if auth
+        = render 'layouts/header'
       = yield

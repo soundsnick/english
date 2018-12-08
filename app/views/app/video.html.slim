@@ -1,15 +1,17 @@
 main.page.page-home
   .video-page
-    .video-page__player--wrapper
-      video.video-page__player controls="controls"
-        source src="/videos/#{@video.file}"
+    .video-flex
+      .video-page__player--wrapper
+        video.video-page__player controls="controls"
+          source src="/videos/#{@video.file}"
+      .video-page__info
+        h1.title = @app[:title]
+        a.video__category href="/category/#{@video.course.id}" = @video.course.title
+        p.video-page__description = @video.description
+        span.video__date = 'Добавлено: ' + @video.created_at.strftime("%d.%m.%Y")
     .container
-      h1.title = @app[:title]
-      a.video__category href="/category/#{@video.category.id}" = @video.category.title
-      p.video-page__description = @video.description
-      span.video__date = 'Добавлено: ' + @video.created_at.strftime("%Y-%m-%d")
-      hr style="margin: 50px 0"
       #disqus_thread
+  = render 'layouts/footer'
   javascript:
     var disqus_config = function () {
     this.page.url = PAGE_URL; // Replace PAGE_URL with your page 's canonical URL variable

@@ -1,31 +1,43 @@
 main.page.page-admin
   .admin-page
-    .container
-      - if notice
-        .notice.success = notice
-      = form_with class: "category-add flex", url: '/category/add', method: :post
+    = form_with class: "category-add flex", url: '/category/add', method: :post
+      .container style="width: 100%"
         span.category-add__title = "Добавить категорию"
         input.category-add__field type="text" name="category" placeholder="Название категории"
         input.category-add__button type="submit" value="+"
-      - Category.all.each do |c|
-        - @videos = Video.where(category_id: c.id)
-        .category
-          .title = c.title
-          a.category__link href="/category/remove/#{c.id}" = "Удалить категорию"
-        - if @videos.length == 0
-          span.empty = "Пусто"
-        .video-list
-          - @videos.each do |v|
-            .video-list__item
-              a href="/video/#{v.id}"
-                .video-list__item--thumb style="background-image: url(/thumbs/#{v.thumb}"
-              .video-list__item__info
-                h5.video-list__item--title = v.title
-                p.video-list__item--description = v.description
-                span.video-list__item--date = 'Добавлено: ' + v.created_at.strftime("%Y-%m-%d")
-              .video-list__item__control
-                a href="/remove/#{v.id}" = "Удалить"
-                a href="/edit/#{v.id}" = "Редактировать"
+    .container
+      - if notice
+        .notice.success = notice
+      - Category.all.each do |cat|
+        .course
+          .category
+            .bigtitle = cat.title
+            a.category__link href="/course/create/#{cat.id}" = "Добавить курс"
+            a.category__link href="/category/remove/#{cat.id}" onclick="return confirm('Удалить категорию?')" = "Удалить категорию с содержимым"
+          - @courses = Course.where(category_id: cat.id)
+          - if @courses.length == 0
+            span.empty = "Пусто"
+          - @courses.each do |c|
+            - @videos = Video.where(course_id: c.id)
+            .category style="margin-top: 0"
+              .title = c.title
+              a.category__link href="/add/#{c.id}" = "Добавить видео"
+              a.category__link href="/course/edit/#{c.id}" = "Редактировать"
+              a.category__link href="/course/remove/#{c.id}" onclick="return confirm('Удалить курс?')" = "Удалить курс с содержимым"
+            - if @videos.length == 0
+              span.empty = "Пусто"
+            .video-list
+              - @videos.each do |v|
+                .video-list__item
+                  a href="/video/#{v.id}"
+                    .video-list__item--thumb style="background-image: url(/thumbs/#{v.thumb}"
+                  .video-list__item__info
+                    h5.video-list__item--title = v.title
+                    p.video-list__item--description = v.description
+                    span.video-list__item--date = 'Добавлено: ' + v.created_at.strftime("%Y-%m-%d")
+                  .video-list__item__control
+                    a href="/remove/#{v.id}" onclick="return confirm('Удалить данное видео?')" = "Удалить"
+                    a href="/edit/#{v.id}" = "Редактировать"
 
 css:
   .categories--wrapper{

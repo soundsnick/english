@@ -6,8 +6,7 @@ main.add-page.add
       textarea.add-form__textarea name="description" placeholder="Описание"
       .add-form__flex
         select name="category"
-          - @categories.each do |c|
-            option value=c.id = c.title
+          option value=@cat.id = @cat.title
         label
           span = "Загрузить видео"
           input type="file" name="video"

@@ -1,0 +1,20 @@
+main.add-page.add
+  .container
+    h1.title = "Создать курс"
+    = form_with method: 'post', url: '/course/create', multipart: true,  class: "add-form"
+      input.add-form__field type="text" name="title" placeholder="Название курса"
+      textarea.add-form__textarea name="description" placeholder="Описание курса"
+      .add-form__flex
+        input.add-form__field type="number" placeholder="Цена" name="price" style="max-width: 150px; margin-right: 15px;"
+        select name="category"
+          - @categories.each do |c|
+            option value=c.id = c.title
+        label
+          span = "Загрузить обложку курса"
+          input type="file" name="cover"
+      input.form--button type="submit" value="Загрузить"
+      a.form--button.cancel href=url_for(:back) = "Отмена"
+css:
+  .categories--wrapper{
+    display: none;
+  }
