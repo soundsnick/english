@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: upmind_production
-  username: upmind
-  password: <%= ENV['UPMIND_DATABASE_PASSWORD'] %>
+  database: deploy_production
+  username: deploy
+  password: '1-14-40ernazar'

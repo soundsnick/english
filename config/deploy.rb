@@ -1,5 +1,5 @@
 # Change these
-server '185.135.82.143', port: 80, roles: [:web, :app, :db], primary: true
+server '185.135.82.143', port: 22, roles: [:web, :app, :db], primary: true
 set :repo_url,        'git@github.com:soundsnick/english.git'
 set :application,     'english'
 set :user,            'deploy'
