@@ -10,10 +10,10 @@ main.add-page.add
             option value=c.id = c.title
         label
           span = "Загрузить видео"
-          input type="file" name="video"
+          input type="file" name="video" accept="video/*"
         label
           span = "Загрузить обложку видео"
-          input type="file" name="cover"
+          input type="file" name="cover" accept="image/x-png,image/gif,image/jpeg"
       input.form--button type="submit" value="Загрузить"
       a.form--button.cancel href=url_for(:back) = "Отмена"
 css:

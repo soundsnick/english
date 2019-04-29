@@ -129,18 +129,25 @@ class AppController < ApplicationController
       uploaded_video = params[:video]
       uploaded_video_name = uploaded_video.original_filename
       uploaded_img = params[:cover]
+      image = params[:cover]
+      imagehex = Digest::SHA256.hexdigest image.original_filename
+      imagehex = imagehex.slice(0, 10)
+      imagehex2 = Digest::SHA256.hexdigest rand(0..100).to_s
+      imagehex2 = imagehex2.slice(0, 10)
+      imagehex = imagehex2 + imagehex
+
       uploaded_img_name = uploaded_img.original_filename
-      File.open(Rails.root.join('public', 'videos', uploaded_video_name ), 'wb') do |file|
+      File.open(Rails.root.join('public', 'videos', imagehex + uploaded_video_name ), 'wb') do |file|
         file.write(uploaded_video.read)
       end
-      File.open(Rails.root.join('public', 'thumbs', uploaded_img_name ), 'wb') do |file|
+      File.open(Rails.root.join('public', 'thumbs', imagehex + uploaded_img_name ), 'wb') do |file|
         file.write(uploaded_img.read)
       end
       @video = Video.new
       @video.title = params[:title]
       @video.description = params[:description]
-      @video.file = uploaded_video_name
-      @video.thumb = uploaded_img_name
+      @video.file = imagehex + uploaded_video_name
+      @video.thumb = imagehex + uploaded_img_name
       @video.course_id = params[:category]
       @video.save
       redirect_to admin_path, notice: 'Видео успешно добавлено'
