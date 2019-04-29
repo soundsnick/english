@@ -67,7 +67,7 @@ class AppController < ApplicationController
   def video
     if auth
       if @video = Video.joins(:course).where(id: params[:id]).take
-        if UserCourse.where(user_id: session[:auth]['id'], course_id: @video.course_id).length != 0
+        if UserCourse.where(user_id: session[:auth]['id'], course_id: @video.course_id).length != 0 or isAdmin
           @app = {'title': @video.title}
         else
           redirect_back fallback_location: root_path, notice: 'Вы должны купить курс чтобы смотреть это видео'
