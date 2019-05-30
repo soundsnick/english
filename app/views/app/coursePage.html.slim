@@ -4,11 +4,11 @@ main.page.page-home
       h1.course__header--title = @cat.title
       a.course__header--category href="/category/#{@cat.category.id}" = @cat.category.title
       - if UserCourse.where(user_id: session[:auth]['id'], course_id: @cat.id).length == 0
-        a.video__buy href="/course/buy/#{@cat.id}" onclick="return confirm('Купить курс?')" = "Купить"
+        a.video__buy href="/course/buy/#{@cat.id}" onclick="return confirm('Сенімдісіз бе?')" = "Сатып алу"
   .container
     - if notice
       .notice.success = notice
-    .title = "Содержание курса"
+    .title style="font-family: Roboto" = "Курстың мазмұны"
     .videos
       - @videos.each do |v|
         .video data-id=v.id
@@ -20,7 +20,7 @@ main.page.page-home
               h6.video__title
                 = v.title
               p.video__description = v.description
-            span.video__date = "Добавлено: " + v.created_at.strftime("%d.%m.%Y")
+            span.video__date = v.created_at.strftime("%d.%m.%Y")
       - if @videos.length == 0
         span.empty = "Пусто"
 css:

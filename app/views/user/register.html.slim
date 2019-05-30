@@ -2,13 +2,13 @@ main.page.page-login
   .container
     .page-login__wrapper
       = form_with method: 'post', url: '/register', class: 'login-form--wrapper register'
-        h3.form__title = "Регистрация"
+        h3.form__title = "Тіркелу"
         - if notice
           .notice.success = notice
         span.form--description
-          a.form--link href="/login" = "Уже зарегистрированы?"
-        input.form--field type="text" placeholder="Электронная почта" name="email"
-        input.form--field type="text" placeholder="Ваше имя" name="name"
+          a.form--link href="/login" = "Кіру"
+        input.form--field type="text" placeholder="Пошта" name="email"
+        input.form--field type="text" placeholder="Есіміңіз" name="name"
         input.form--field type="password" placeholder="Пароль" name="password"
         input.form--field type="password" placeholder="Подтверждение пароля" name="password_confirm"
         / .flex
@@ -17,4 +17,4 @@ main.page.page-login
           /   = "Я согласен с "
           /   a.form--link href="/privacy" = "условиями оферты"
         .form--flex
-          input.form--button type="submit" value="Зарегистрироваться"
+          input.form--button type="submit" value="Тіркелу"

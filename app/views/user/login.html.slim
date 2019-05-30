@@ -2,13 +2,12 @@ main.page.page-login
   .container
     .page-login__wrapper
       = form_with method: 'post', url: '/login', class: 'login-form--wrapper'
-        h3.form__title = "Войти"
+        h3.form__title = "Кіру"
         span.form--description
-          a.form--link href="/register" = "Регистрация"
+          a.form--link href="/register" = "Тіркелу"
         - if notice
           .notice.success = notice
-        input.form--field type="text" placeholder="Электронная почта" name="email"
+        input.form--field type="text" placeholder="Пошта" name="email"
         input.form--field type="password" placeholder="Пароль" name="password"
         .form--flex
-          input.form--button type="submit" value="Войти"
-          a.form--link href="/restore" = "Забыли пароль?"
+          input.form--button type="submit" value="Кіру"

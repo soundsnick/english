@@ -601,6 +601,7 @@ app{
     padding: 10px 25px;
     background: $color-main;
     border-radius: 4px;
+    font-family: Roboto;
     color: #fff;
     box-shadow: 0 8px 17px -8px rgba(37, 150, 243, 0.58);
     transition: background $transition-slow;
@@ -630,7 +631,7 @@ app{
     &__info{
       text-align: center;
       background: #fff;
-      padding: 40px;
+      padding: 34px;
       flex: 1;
       border-radius: 0 45px 45px 0;
       box-shadow: 0 27px 25px -18px rgba(0,0,0,.1);
@@ -639,8 +640,9 @@ app{
       text-align: center;
       color: #2596f3;
       font-size: 1.7em;
-      text-shadow: 0 1px 4px rgba(109, 197, 255, .2);
+      text-shadow: 0 1px 4px rgba(109, 197, 255, 0.2);
       margin-bottom: 0;
+      margin-top: 20px;
     }
     &__teacher{
       margin: 0;
@@ -658,6 +660,7 @@ app{
         font-size: 20px;
         padding: 5px 0;
         color: #282828;
+        font-family: Roboto;
         display: flex;
         align-items: center;
         text-align: left;
@@ -671,35 +674,48 @@ app{
   }
   &-categories{
     &--grid{
+      padding-top: 27px;
       display: grid;
       grid-template-columns: repeat(4, minmax(100px, 1fr));
-      grid-gap: 20px;
+      grid-gap: 50px;
     }
   }
   &-category{
-    background: #fff;
-    box-shadow: 0 3px 3px -2px rgba(0,0,0,.1);
+    background: #2696f3;
+    box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.1);
     border-radius: 100px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
     text-align: center;
     color: #282828;
     font-weight: 100;
-    h4{ font-weight: 200; }
+    h4{
+      font-weight: 300;
+      margin: 0;
+      font-size: 18px;
+      padding: 8px;
+      flex: 1;
+      color: #fff;
+    }
   }
   &__title{
-    margin-bottom: 35px;
-    margin-top: 45px;
+    margin-bottom: 0;
+    padding-top: 85px;
     font-weight: 500;
+    font-size: 24px;
     text-align: center;
     color: #282828;
   }
   &-courses{
     &__inner{
       text-align: center;
-      margin-top: 50px;
       background: #fff;
       padding: 40px;
+      padding-top: 10px;
+      font-size: 12px;
       border-radius: 4px;
-      box-shadow: 0 27px 25px -18px rgba(0,0,0,.1);
+      box-shadow: 0 27px 25px -18px rgba(0, 0, 0, 0.1);
       margin-bottom: 40px;
     }
     &--grid {

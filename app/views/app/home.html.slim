@@ -2,7 +2,7 @@ main.page.page-home
   .container
     - if notice
       .notice.success = notice
-    h1.title = "Недавние публикации"
+    h1.title style="font-family: Roboto" = "Жаңа публикациялар"
     .videos
       - @videos.each do |v|
         .video data-id=v.id

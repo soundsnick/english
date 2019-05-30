@@ -6,20 +6,20 @@ header.header#header
           h3.logo = "RayEnglish"
       nav.header__navigation
         - for nav in navigation_items do
-          a.navigation--item href=nav[1] = nav[0]
+          a.navigation--item href="/" = "Басты бет"
         - if isAdmin
           a.navigation--item href=add_path = "Добавить"
           a.navigation--item href=admin_path = "Администрация"
         - if auth
-          a.navigation--item href=admin_path = "Категории"
+          a.navigation--item href=admin_path = "Категориялар"
           div[uk-dropdown]
             ul class="uk-nav uk-dropdown-nav" style="text-align: left;"
               - categories.each do |c|
                 a.categorys href="/category/#{c.id}" = c.title
-          a.navigation--item href=logout_path = 'Выйти'
+          a.navigation--item href=logout_path = 'Шыгу'
           a.navigation--item.balance href="/balance"
-            = "Ваш баланс: "
+            = "Баланс: "
             = User.find_by(id: session[:auth]['id']).balance
             span = "₸"
         - else
-          a.navigation--item href=login_path = 'Войти'
+          a.navigation--item href=login_path = 'Кiру'

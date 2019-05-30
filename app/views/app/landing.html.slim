@@ -2,34 +2,34 @@ header.landing-header
   .container.flex
     h1.landing-header__logo = "Рай English"
     .landing-header__contact
-      a.landing-header__social href="https://instagram/instagram"
+      a.landing-header__social href="https://instagram/rayy_english"
         i.fa.fa-instagram
         span = 'instagram'
-      a.landing-header__social href="tel:71234545"
+      a.landing-header__social href="tel:87716867394"
         i.fa.fa-mobile-phone
-        span = '8(123)123-4545'
+        span = '+7 771 686 73 94'
     .landing-header__buttons
-      a.landing__button href="/login" = "Войти"
+      a.landing__button href="/login" = "Кіру"
 section.landing-about
   .container
     img.landing-about__img src=asset_path("teacher.jpg")
     .landing-about__info
-      h1.landing-about__title = "Быстро, просто и результативно"
-      h4.landing-about__teacher = "Жансая Саматкызы"
+      h1.landing-about__title = "Жылдам,қарапайым және нәтижелі"
+      h4.landing-about__teacher = "Алмабек Жансая Саматқызы"
       ul.landing-about__list
         li
           img src=asset_path("tick.svg")
-          span = "Вы будете использовать эффективный способ запоминания слов"
+          span = "Сөзді есте сақтаудың ең эффективті түрін қолданасыз"
         li
           img src=asset_path("tick.svg")
-          span = "Выучите грамматику нетрадиционным оригинальным способом"
+          span = "Грамматиканы дәстүрлі емес оңай түрде үйренесіз"
         li
           img src=asset_path("tick.svg")
-          span = "Научитель красиво и грамотно говорить"
-      a.landing__button.big href="/login" = "Присоединиться"
+          span = "Әдемі және сауатты сөйлей бастайсыз"
+      a.landing__button.big href="/login" = "Қосылу"
 section.landing-categories style="margin-top: 57px;"
   .container
-    h1.landing__title = "По этим категориям у нас уже есть курсы"
+    h1.landing__title = "Бізде осы категориялар бойынша курстар бар"
     - @categories = Category.all
     .landing-categories--grid
       - @categories.each do |c|
@@ -39,7 +39,7 @@ section.landing-courses
   .container
     - @courses = Course.all.limit(3)
     .landing-courses__inner
-      h3.landing-about__title = "Новые курсы"
+      h3.landing-about__title = "Жаңа курстар"
       .landing-courses--grid
         - @courses.each do |d|
           .landing-course
@@ -51,4 +51,4 @@ section.landing-courses
               .landing-course__price
                 = d.price
                 span = "₸"
-              a.landing__button href="/login" = "Купить"
+              a.landing__button href="/login" = "Сатып алу"
