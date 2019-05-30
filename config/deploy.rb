@@ -63,10 +63,22 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
+  task :image_backup do
+    on roles(:app) do
+      execute "cp -r -n /home/deploy/apps/english/current/public/courses/* /home/deploy/backup/courses && cp -r -n /home/deploy/apps/english/current/public/thumbs/* /home/deploy/backup/thumbs && cp -r -n /home/deploy/apps/english/current/public/files/* /home/deploy/backup/files"
+    end
+  end
+  task :image_back do
+    on roles(:app) do
+      execute "cp -r /home/deploy/backup/thumbs/* /home/deploy/apps/english/current/public/thumbs && cp -r /home/deploy/backup/courses/* /home/deploy/apps/euro-detai/current/public/courses && cp -r /home/deploy/backup/files/* /home/deploy/apps/euro-detai/current/public/files"
+    end
+  end
   before :starting,     :check_revision
+  after  :starting,      :image_backup
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after  :finishing,    :restart
+  after  :finishing,      :image_back
+  after  :image_back,    :restart
 end
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma

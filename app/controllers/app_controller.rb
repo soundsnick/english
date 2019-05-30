@@ -54,6 +54,17 @@ class AppController < ApplicationController
   def categoryRemove
     if isAdmin
       if @category = Category.find_by(id: params[:id])
+        @courses = Course.where(category_id: params[:id])
+        @courses.each do |course|
+          @videos = Video.where(course_id: course.id)
+          @videos.each do |video|
+            File.delete(Rails.root.join('public', 'videos', video.file )) if File.exist?(Rails.root.join('public', 'videos', video.file ))
+            File.delete(Rails.root.join('public', 'thumbs', video.thumb )) if File.exist?(Rails.root.join('public', 'thumbs', video.thumb ))
+            video.destroy
+          end
+          File.delete(Rails.root.join('public', 'courses', course.cover )) if File.exist?(Rails.root.join('public', 'courses', course.cover ))
+          course.destroy
+        end
         @category.destroy
         redirect_to admin_path, notice: 'Категория успешно удалена'
       else
@@ -121,6 +132,28 @@ class AppController < ApplicationController
       end
     else
       redirect_to '/404'
+    end
+  end
+
+  def courseRemove
+    if isAdmin
+      if params[:id]
+        if @course = Course.find_by(id: params[:id])
+          @videos = Video.where(course_id: @course.id)
+          @videos.each do |video|
+            File.delete(Rails.root.join('public', 'videos', video.file )) if File.exist?(Rails.root.join('public', 'videos', video.file ))
+            File.delete(Rails.root.join('public', 'thumbs', video.thumb )) if File.exist?(Rails.root.join('public', 'thumbs', video.thumb ))
+            @video.destroy
+          end
+          File.delete(Rails.root.join('public', 'courses', @course.cover )) if File.exist?(Rails.root.join('public', 'courses', @course.cover ))
+          @course.destroy
+          redirect_to admin_path, notice: 'Успешно удалено'
+        else redirect_to admin_path, notice: 'Курс не найден'
+        end
+      else redirect_to admin_path, notice: 'Курс не найден'
+      end
+    else
+      redirect_to root_path, notice: 'Вы не являетесь администратором!'
     end
   end
 

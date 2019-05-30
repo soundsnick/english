@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/course/edit/:id(.:format)', to: 'app#editCourse'
   get '/course/buy/:id(.:format)', to: 'app#buyCourse'
   get '/course/:id(.:format)', to: 'app#coursePage'
+  get '/course/remove/:id(.:format)', to: 'app#courseRemove'
 
   post '/edit', to: 'app#editVideo'
   post '/login', to: 'user#login'
