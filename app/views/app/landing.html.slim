@@ -44,7 +44,7 @@ section.landing-courses
         - @courses.each do |d|
           .landing-course
             .landing-course__img--wrapper
-              img.landing-course__img src=asset_path(d.cover)
+              img.landing-course__img src="/courses/#{d.cover}"
             .landing-course__info
               h6.landing-course__title = d.title
               p.landing-course__description = d.description
