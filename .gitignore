@@ -15,7 +15,7 @@
 /.idea
 /public/courses/*
 /public/thumbs/*
-/public/files/*
+/public/videos/*
 
 /node_modules
 /yarn-error.log

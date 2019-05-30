@@ -65,12 +65,12 @@ namespace :deploy do
   end
   task :image_backup do
     on roles(:app) do
-      execute "cp -r -n /home/deploy/apps/english/current/public/courses/* /home/deploy/backup/courses && cp -r -n /home/deploy/apps/english/current/public/thumbs/* /home/deploy/backup/thumbs && cp -r -n /home/deploy/apps/english/current/public/files/* /home/deploy/backup/files"
+      execute "cp -r -n /home/deploy/apps/english/current/public/courses/* /home/deploy/backup/courses && cp -r -n /home/deploy/apps/english/current/public/thumbs/* /home/deploy/backup/thumbs && cp -r -n /home/deploy/apps/english/current/public/videos/* /home/deploy/backup/files"
     end
   end
   task :image_back do
     on roles(:app) do
-      execute "cp -r /home/deploy/backup/thumbs/* /home/deploy/apps/english/current/public/thumbs && cp -r /home/deploy/backup/courses/* /home/deploy/apps/euro-detai/current/public/courses && cp -r /home/deploy/backup/files/* /home/deploy/apps/euro-detai/current/public/files"
+      execute "cp -r /home/deploy/backup/thumbs/* /home/deploy/apps/english/current/public/thumbs && cp -r /home/deploy/backup/courses/* /home/deploy/apps/euro-detai/current/public/courses && cp -r /home/deploy/backup/files/* /home/deploy/apps/euro-detai/current/public/videos"
     end
   end
   before :starting,     :check_revision
