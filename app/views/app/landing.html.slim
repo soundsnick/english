@@ -27,24 +27,12 @@ section.landing-about
           img src=asset_path("tick.svg")
           span = "Научитель красиво и грамотно говорить"
       a.landing__button.big href="/login" = "Присоединиться"
-section.landing-categories
+section.landing-categories style="margin-top: 57px;"
   .container
     h1.landing__title = "По этим категориям у нас уже есть курсы"
     - @categories = Category.all
     .landing-categories--grid
       - @categories.each do |c|
-        .landing-category
-          h4 = c.title
-        .landing-category
-          h4 = c.title
-        .landing-category
-          h4 = c.title
-        .landing-category
-          h4 = c.title
-        .landing-category
-          h4 = c.title
-        .landing-category
-          h4 = c.title
         .landing-category
           h4 = c.title
 section.landing-courses
@@ -64,4 +52,3 @@ section.landing-courses
                 = d.price
                 span = "₸"
               a.landing__button href="/login" = "Купить"
-= render 'layouts/footer'

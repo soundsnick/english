@@ -1,18 +1,20 @@
-main.page.page-home
+main.page.page-home.page
   .video-page
-    .video-flex
-      .video-page__player--wrapper
-        video.video-page__player controls="controls"
-          source src="/videos/#{@video.file}"
-      .video-page__info
-        h1.title = @app[:title]
-        a.video__category href="/category/#{@video.course.id}" = @video.course.title
-        p.video-page__description = @video.description
-        span.video__date = 'Добавлено: ' + @video.created_at.strftime("%d.%m.%Y")
+    div style="background-color: #15191f;"
+      .container
+        .video-flex
+          .video-page__player--wrapper
+            video.video-page__player[poster="/thumbs/#{@video.thumb}" id="player" playsinline controls]
+              source src="/videos/#{@video.file}" type="video/mp4"
+          .video-page__info
+            h1.title = @app[:title]
+            a.video__category href="/category/#{@video.course.id}" = @video.course.title
+            p.video-page__description = @video.description
+            span.video__date = 'Добавлено: ' + @video.created_at.strftime("%d.%m.%Y")
     .container
       #disqus_thread
-  = render 'layouts/footer'
   javascript:
+    const player = new Plyr('#player');
     var disqus_config = function () {
     this.page.url = PAGE_URL; // Replace PAGE_URL with your page 's canonical URL variable
     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page 's unique identifier variable

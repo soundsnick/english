@@ -34,7 +34,7 @@ main.page.page-admin
                   .video-list__item__info
                     h5.video-list__item--title = v.title
                     p.video-list__item--description = v.description
-                    span.video-list__item--date = 'Добавлено: ' + v.created_at.strftime("%Y-%m-%d")
+                    span.video-list__item--date = 'Опубликовано: ' + v.created_at.strftime("%Y.%m.%d")
                   .video-list__item__control
                     a href="/remove/#{v.id}" onclick="return confirm('Удалить данное видео?')" = "Удалить"
                     a href="/edit/#{v.id}" = "Редактировать"

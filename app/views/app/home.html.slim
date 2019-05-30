@@ -2,7 +2,7 @@ main.page.page-home
   .container
     - if notice
       .notice.success = notice
-    h1.title = @app[:title]
+    h1.title = "Недавние публикации"
     .videos
       - @videos.each do |v|
         .video data-id=v.id
@@ -22,4 +22,3 @@ main.page.page-home
             span.video__date = "Добавлено: " + v.created_at.strftime("%d.%m.%Y")
       - if @videos.length == 0
         span.empty = "Пусто"
-  = render 'layouts/footer'

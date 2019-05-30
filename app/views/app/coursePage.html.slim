@@ -14,7 +14,7 @@ main.page.page-home
         .video data-id=v.id
           a href="/video/#{v.id}"
             .video__thumb--wrapper
-              .video__thumb  style="background-image: url(/thumbs/#{v.thumb}"
+              .video__thumb  style="background-image: url(/thumbs/#{v.thumb})"
           .video__info
             a href="/video/#{v.id}"
               h6.video__title
@@ -23,7 +23,6 @@ main.page.page-home
             span.video__date = "Добавлено: " + v.created_at.strftime("%d.%m.%Y")
       - if @videos.length == 0
         span.empty = "Пусто"
-  = render 'layouts/footer'
 css:
   .categories--wrapper{
     display: none;
