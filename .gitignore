@@ -13,6 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 /.idea
+/public/courses/*
+/public/thumbs/*
+/public/files/*
 
 /node_modules
 /yarn-error.log
