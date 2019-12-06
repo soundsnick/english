@@ -14,7 +14,7 @@ gem "font-awesome-rails"
 gem 'plyr-rails'
 gem 'rails', '~> 5.1.6'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
