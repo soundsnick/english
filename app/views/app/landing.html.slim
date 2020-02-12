@@ -19,7 +19,7 @@ section.landing-about
       ul.landing-about__list
         li
           img src=asset_path("tick.svg")
-          span = "Сөзді есте сақтаудың ең эффективті түрін қолданасыз"
+          span = "Сөзді есте сақтаудың ең тиімді түрін қолданасыз"
         li
           img src=asset_path("tick.svg")
           span = "Грамматиканы дәстүрлі емес оңай түрде үйренесіз"
@@ -29,7 +29,7 @@ section.landing-about
       a.landing__button.big href="/login" = "Қосылу"
 section.landing-categories style="margin-top: 57px;"
   .container
-    h1.landing__title = "Бізде осы категориялар бойынша курстар бар"
+    h1.landing__title = "Курстар"
     - @categories = Category.all
     .landing-categories--grid
       - @categories.each do |c|
@@ -52,3 +52,4 @@ section.landing-courses
                 = d.price
                 span = "₸"
               a.landing__button href="/login" = "Сатып алу"
+              span.orange = "Бөліп төлеу мүмкіндігі"

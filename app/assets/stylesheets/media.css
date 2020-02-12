@@ -1,0 +1,52 @@
+@media only screen and (max-width: 900px){
+  .landing-about .container{
+    flex-direction: column!important;
+  }
+  .landing-about__img{
+    width: auto!important;
+    height: auto!important;
+  }
+  .landing-header .container{
+    flex-wrap: wrap;
+    padding: 20px;
+    height: auto!important;
+    text-align: center;
+  }
+  .landing-header__logo{
+    flex: 0 0 100%;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .landing-courses--grid{
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+  }
+  .wrapper-flex{
+    flex-direction: column;
+    padding: 20px 0;
+    align-items: initial!important;
+  }
+  .header__navigation{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background:
+    #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .logo--wrapper{
+    text-align: center;
+  }
+  .navigation--item {
+    color: #282828!important;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0px 1px 0 #fff;
+  }
+  .navigation--item:hover{
+    color: #000;
+  }
+  .container{
+    padding: 0 20px;
+  }
+}

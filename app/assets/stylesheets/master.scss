@@ -195,6 +195,9 @@ app{
     }
   }
 }
+input{
+  font-family: Roboto!important;
+}
 .login{
   &-form{
     &--wrapper{
@@ -528,6 +531,13 @@ app{
     margin-bottom: 0;
   }
 }
+.orange{
+  font-size: 12px;
+  color: orange;
+  display: block;
+  padding: 5px;
+  text-align: center;
+}
 .video-flex {
   background: #15191f;
   display: flex;
@@ -743,6 +753,7 @@ app{
     &__description{
       margin: 0;
       line-height: 1.5em;
+      font-family: Roboto;
       font-size: 16px;
       margin-bottom: 15px;
       color: #484848;
