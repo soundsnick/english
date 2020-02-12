@@ -49,4 +49,7 @@
   .container{
     padding: 0 20px;
   }
+  .videos{
+    grid-template-columns: repeat(1, minmax(100px, 1fr))!important;
+  }
 }
