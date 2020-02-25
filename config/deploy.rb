@@ -70,7 +70,7 @@ namespace :deploy do
   end
   task :image_back do
     on roles(:app) do
-      execute "cp -r /home/deploy/backup/uploaders/* /home/deploy/apps/english/current/public/uploaders/"
+      execute "cp -r -n /home/deploy/backup/uploaders/* /home/deploy/apps/english/current/public/uploaders/"
     end
   end
   before :starting,     :check_revision
