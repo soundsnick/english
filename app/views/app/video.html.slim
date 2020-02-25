@@ -4,8 +4,8 @@ main.page.page-home.page
       .container
         .video-flex
           .video-page__player--wrapper
-            video.video-page__player[poster="/thumbs/#{@video.thumb}" id="player" playsinline controls]
-              source src="/videos/#{@video.file}" type="video/mp4"
+            video.video-page__player[poster=@video.thumb.url id="player" playsinline controls]
+              source src=@video.file.url type="video/mp4"
           .video-page__info
             h1.title = @app[:title]
             a.video__category href="/category/#{@video.course.id}" = @video.course.title

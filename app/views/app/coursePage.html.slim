@@ -1,5 +1,5 @@
 main.page.page-home
-  header.course__header style="background-image: url(/courses/#{@cat.cover}"
+  header.course__header style="background-image: url(#{@cat.cover.url}"
     .container
       h1.course__header--title = @cat.title
       a.course__header--category href="/category/#{@cat.category.id}" = @cat.category.title
@@ -14,7 +14,7 @@ main.page.page-home
         .video data-id=v.id
           a href="/video/#{v.id}"
             .video__thumb--wrapper
-              .video__thumb  style="background-image: url(/thumbs/#{v.thumb})"
+              .video__thumb  style="background-image: url(#{v.thumb.url})"
           .video__info
             a href="/video/#{v.id}"
               h6.video__title

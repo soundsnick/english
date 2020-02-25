@@ -8,7 +8,7 @@ main.page.page-home
         .video data-id=v.id
           a href="/course/#{v.id}"
             .video__thumb--wrapper
-              .video__thumb  style="background-image: url(/courses/#{v.cover})"
+              .video__thumb  style="background-image: url(#{v.cover.url})"
               .video__price
                 = v.price
                 span = "₸"
