@@ -65,12 +65,12 @@ namespace :deploy do
   end
   task :image_backup do
     on roles(:app) do
-      execute "cp -r -n /home/deploy/apps/english/current/public/uploaders /home/deploy/backup/"
+      execute "cp -r -n /home/deploy/apps/english/current/public/courses/* /home/deploy/backup/courses && cp -r -n /home/deploy/apps/english/current/public/thumbs/* /home/deploy/backup/thumbs && cp -r -n /home/deploy/apps/english/current/public/videos/* /home/deploy/backup/files"
     end
   end
   task :image_back do
     on roles(:app) do
-      execute "cp -r -n /home/deploy/backup/uploaders/* /home/deploy/apps/english/current/public/uploaders/"
+      execute "cp -r /home/deploy/backup/thumbs/* /home/deploy/apps/english/current/public/thumbs && cp -r /home/deploy/backup/courses/* /home/deploy/apps/english/current/public/courses && cp -r /home/deploy/backup/files/* /home/deploy/apps/english/current/public/videos"
     end
   end
   before :starting,     :check_revision
