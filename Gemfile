@@ -12,7 +12,7 @@ gem 'slim'
 gem 'pry'
 gem "font-awesome-rails"
 
-
+gem 'listen'
 gem 'plyr-rails'
 gem 'rails', '~> 5.1.6'
 gem 'pg', '>= 0.18', '< 2.0'
