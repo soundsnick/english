@@ -16,7 +16,7 @@
 /public/courses/*
 /public/thumbs/*
 /public/videos/*
-
+/public/uploads
 /node_modules
 /yarn-error.log
 /.env
