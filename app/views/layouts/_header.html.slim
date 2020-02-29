@@ -8,10 +8,10 @@ header.header#header
         - for nav in navigation_items do
           a.navigation--item href="/" = "Басты бет"
         - if isAdmin
-          a.navigation--item href=add_path = "Добавить"
-          a.navigation--item href=admin_path = "Администрация"
+          a.navigation--item href=rails_admin_path = "Добавить"
+          a.navigation--item href=rails_admin_path = "Администрация"
         - if auth
-          a.navigation--item href=admin_path = "Категориялар"
+          a.navigation--item href=rails_admin_path = "Категориялар"
           div[uk-dropdown]
             ul class="uk-nav uk-dropdown-nav" style="text-align: left;"
               - categories.each do |c|
