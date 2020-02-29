@@ -1,6 +1,5 @@
 class UserController < ApplicationController
 
-  skip_before_action :verify_authenticity_token
 	
   def login_page
     unless auth
